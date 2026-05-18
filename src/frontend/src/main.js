@@ -6,5 +6,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import router from './router'
+import { setupFetchInterceptor } from './middleware/fetchInterceptor.js'
+
+// Establecemos el interceptor global para fetch
+setupFetchInterceptor();
 
 createApp(App).use(router).mount('#app')

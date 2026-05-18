@@ -21,6 +21,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Lista de catálogos
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 
 /**
@@ -46,6 +56,16 @@ const router = Router()
  *     responses:
  *       201:
  *         description: Catálogo creado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 
 /**
@@ -77,6 +97,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Catálogo actualizado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 
 /**
@@ -108,6 +138,16 @@ const router = Router()
  *     responses:
  *       201:
  *         description: Valor creado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 
 /**
@@ -139,6 +179,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Valor actualizado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *
  * /api/catalogos/nombre/{nombre}:
  *   get:
@@ -156,6 +206,14 @@ const router = Router()
  *         description: Detalles del catálogo
  *       404:
  *         description: Catálogo no encontrado
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       500:
+ *         description: Error interno del servidor
  */
 
 /**
@@ -174,6 +232,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Valor eliminado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 
 // Rutas para Catálogos

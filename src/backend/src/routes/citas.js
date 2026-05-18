@@ -13,6 +13,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Lista de citas
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *   post:
  *     tags:
  *       - Citas
@@ -40,6 +50,16 @@ const router = Router()
  *     responses:
  *       201:
  *         description: Cita agendada exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *
  * /api/citas/{id}:
  *   get:
@@ -57,6 +77,14 @@ const router = Router()
  *         description: Detalles de la cita
  *       404:
  *         description: Cita no encontrada
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       500:
+ *         description: Error interno del servidor
  *   put:
  *     tags:
  *       - Citas
@@ -90,6 +118,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Cita actualizada exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *   delete:
  *     tags:
  *       - Citas
@@ -103,6 +141,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Cita eliminada exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 router.get('/', citasController.list)
 router.get('/:id', citasController.getById)

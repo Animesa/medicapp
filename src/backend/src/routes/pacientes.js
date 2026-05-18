@@ -13,6 +13,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Lista de pacientes
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *   post:
  *     tags:
  *       - Pacientes
@@ -42,6 +52,16 @@ const router = Router()
  *     responses:
  *       201:
  *         description: Paciente registrado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *
  * /api/pacientes/{id}:
  *   put:
@@ -79,6 +99,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Paciente actualizado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *   delete:
  *     tags:
  *       - Pacientes
@@ -92,6 +122,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Paciente eliminado exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 router.get('/', pacientesController.list)
 router.post('/', pacientesController.create)

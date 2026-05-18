@@ -13,6 +13,16 @@ const router = Router()
  *     responses:
  *       200:
  *         description: Lista de epicrisis
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  *   post:
  *     tags:
  *       - Epicrisis
@@ -39,6 +49,16 @@ const router = Router()
  *     responses:
  *       201:
  *         description: Epicrisis registrada exitosamente
+ *       400:
+ *         description: Error en la petición (datos inválidos)
+ *       401:
+ *         description: No autorizado (token faltante o inválido)
+ *       403:
+ *         description: Prohibido (no tiene permisos)
+ *       404:
+ *         description: Recurso no encontrado
+ *       500:
+ *         description: Error interno del servidor
  */
 router.get('/', epicrisisController.list)
 router.post('/', epicrisisController.create)

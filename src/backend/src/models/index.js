@@ -5,6 +5,7 @@ import Cita from './Cita.js'
 import Epicrisis from './Epicrisis.js'
 import Catalogos from './Catalogos.js'
 import CatalogoValores from './CatalogoValores.js'
+import Usuarios from './Usuarios.js'
 
 // Creación de relaciones entre las tablas.
 Paciente.hasMany(Cita, { foreignKey: 'pacienteId' })
@@ -26,5 +27,6 @@ export {
   Cita,
   Epicrisis,
   Catalogos,
-  CatalogoValores
+  CatalogoValores,
+  Usuarios
 }

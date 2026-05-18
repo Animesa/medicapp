@@ -9,8 +9,14 @@
         "seed": "node src/seed.js"
     },
     "dependencies": {
+        "bcrypt": "^6.0.0",
         "cors": "^2.8.5",
+        "dotenv": "^17.4.2",
+        "ejs": "^5.0.2",
         "express": "^4.18.4",
+        "express-rate-limit": "^8.5.2",
+        "helmet": "^8.1.0",
+        "jsonwebtoken": "^9.0.3",
         "sequelize": "^6.37.8",
         "sqlite3": "^6.0.1",
         "swagger-jsdoc": "^6.2.8",

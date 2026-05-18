@@ -1,4 +1,4 @@
-import { sequelize, Catalogos, CatalogoValores } from '../models/index.js'
+import { sequelize, Catalogos, CatalogoValores, Usuarios } from '../models/index.js'
 
 export const seedCatalogos = async () => {
     try {
@@ -66,6 +66,32 @@ export const seedCatalogos = async () => {
                 defaults: { valor: esp.valor, activo: true }
             });
         }
+
+        // 4. ROLES
+        const [rolesCat] = await Catalogos.findOrCreate({
+            where: { nombre: 'ROLES' },
+            defaults: { descripcion: 'Roles del sistema', activo: true }
+        });
+
+        const roles = [
+            { clave: '1', valor: 'Administrador' },
+            { clave: '2', valor: 'Médico' },
+            { clave: '3', valor: 'Paciente' }
+        ];
+
+        for (const rol of roles) {
+            await CatalogoValores.findOrCreate({
+                where: { id_catalogo: rolesCat.id, clave: rol.clave },
+                defaults: { valor: rol.valor, activo: true }
+            });
+        }
+
+        // 5. USUARIO DEFAULT
+        const adminUser = await Usuarios.findOrCreate({
+            where: { user_id: 'admin' },
+            defaults: { user_id: 'admin', user_name: 'Administrador', user_lastname: 'MedicAPP', email: 'admin@medicapp.com', password: 'admin', rolId: '1' }
+        });
+
 
         console.log('✅ Catálogos sincronizados correctamente.');
     } catch (error) {

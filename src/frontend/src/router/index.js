@@ -66,6 +66,16 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes
-})
+});
+
+router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('auth_token');
+
+    if (!token && !to.query.token) {
+        window.location.href = "http://localhost:3000/login";
+    } else {
+        next();
+    }
+});
 
 export default router
