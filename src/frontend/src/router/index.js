@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { LOGIN_URL } from '../config.js'
 import Home from '../pages/Home.vue'
 import RegistrarPaciente from '../pages/RegistrarPaciente.vue'
 import RegistrarMedico from '../pages/RegistrarMedico.vue'
@@ -71,8 +72,13 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const token = localStorage.getItem('auth_token');
 
+    if (to.path === '/') {
+        next();
+        return;
+    }
+
     if (!token && !to.query.token) {
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = LOGIN_URL;
     } else {
         next();
     }

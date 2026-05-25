@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import Navbar from './components/Navbar.vue'
+import { setToken } from './utils/auth.js'
 
 const router = useRouter()
 const route = useRoute()
@@ -10,14 +12,23 @@ onMounted(() => {
   const token = urlParams.get('token')
 
   if (token) {
-    localStorage.setItem('auth_token', token);
+    setToken(token)
     router.replace({ path: '/' })
   }
 })
 </script>
 
 <template>
-  <router-view />
+  <Navbar />
+  <div class="main-content">
+    <router-view />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main-content {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+</style>

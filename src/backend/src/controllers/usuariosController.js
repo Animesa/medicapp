@@ -55,4 +55,39 @@ export const destroy = async (req, res) => {
     }
 }
 
-export default { login, authenticate, list, create, update, destroy }
+export const forgotPasswordForm = async (req, res) => {
+    res.render('forgot-password')
+}
+
+export const sendResetLink = async (req, res) => {
+    try {
+        const { email } = req.body
+        const token = await usuariosService.generateResetToken(email)
+        await usuariosService.sendRecoveryEmail(email, token, req.headers.host)
+        res.render('forgot-password', { success: 'Se ha enviado un enlace de recuperación a tu correo electrónico. Por favor, verifica tu bandeja de entrada en Mailtrap.' })
+    } catch (error) {
+        res.render('forgot-password', { error: error.message || 'Error al procesar la solicitud' })
+    }
+}
+
+export const resetPasswordForm = async (req, res) => {
+    try {
+        const { token } = req.query
+        await usuariosService.validateResetToken(token)
+        res.render('reset-password', { token })
+    } catch (error) {
+        res.render('login', { error: error.message || 'El enlace de recuperación no es válido o ha expirado.' })
+    }
+}
+
+export const updatePassword = async (req, res) => {
+    try {
+        const { token, password } = req.body
+        await usuariosService.updatePassword(token, password)
+        res.render('login', { success: 'Tu contraseña ha sido restablecida exitosamente. Ya puedes iniciar sesión.' })
+    } catch (error) {
+        res.render('login', { error: error.message || 'Error al restablecer la contraseña' })
+    }
+}
+
+export default { login, authenticate, list, create, update, destroy, forgotPasswordForm, sendResetLink, resetPasswordForm, updatePassword }

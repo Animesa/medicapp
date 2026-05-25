@@ -90,6 +90,7 @@ app.use(helmet({
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "blob:"],
       connectSrc: ["'self'"],
+      formAction: ["'self'", process.env.FRONTEND_URL || "http://localhost:5173"],
     },
   },
 }))

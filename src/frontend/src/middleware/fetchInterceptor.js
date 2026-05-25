@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../config.js'
+import { API_BASE_URL, LOGIN_URL } from '../config.js'
 
 export function setupFetchInterceptor() {
   const originalFetch = window.fetch;
@@ -19,7 +19,7 @@ export function setupFetchInterceptor() {
     // Si el backend nos rechaza el token (expirado o inválido), forzamos un re-login
     if (response.status === 401 || response.status === 403) {
       localStorage.removeItem('auth_token');
-      window.location.href = "http://localhost:3000/login";
+      window.location.href = "/";
     }
     
     return response;
